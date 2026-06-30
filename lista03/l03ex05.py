@@ -13,143 +13,127 @@ solicitar o nome da pessoa a ser alterado e, em seguida, solicitar as novas info
 da pessoa (idade, altura e peso). A opção Listar deve apresentar todas as informações
 das pessoas cadastradas. '''
 
-nomes = [] 
-idds = []
-alts = []
-pesos = []
 
-# posição livre em nome
-posicaonome = 0
-# posição livre em idade
-posicaoidade = 0
-# posição livre em altura
-posicaoaltura = 0
-# posição livre em peso
-posicaopeso = 0
+nomes = [0] * 15
+idds = [0] * 15
+alts = [0] * 15
+pesos = [0] * 15
 
-inf = input('Qual informação você deseja armazenar?')
 
 while True:
 
-    while inf == nomes:
-        print('\nMENU','\n----', '\n1 – Cadastrar', '\n2 - Excluir','\n3 - Alterar', '\n4 - Listar', '\n0 - Sair')
-        op = int(input('Digite a opção: '))
+
+   print("\nMENU", "\n1 - Cadastrar", "\n2 - Excluir", "\n3 - Alterar", "\n4 - Listar", "\n0 - Sair")
 
 
-        if op == 1:
-            if 0 in nomes:  # se tiver espaço livre
-
-                posicaonome = nomes.index(0)
-
-                nome = input('Digite a placa: ')
-
-                if nome != "":
-
-                    if nome in nomes:
-                        print('Nome já cadastrado.')
-
-                    else:
-                        nomes[posicaonome] = nome
-                        print('Nome cadastrado com sucesso!')
-
-                else:
-                    print('Nome Inválido.')
-
-            else:
-                print('Não há mais espaço para armazenar placas.')
-
-        elif op == 2:
-            exclui = input('Qual nome deseja excluir? ')
-
-            if exclui in nomes:
-                indice = nomes.index(exclui)
-                nomes[indice] = 0
-                print('Nome excluído com sucesso!')
-
-            else:
-                print('Não foi possível excluir este nome, pois ele não existe no nosso sistema!')
-
-        elif op == 3:
-            nomealtrd = input('Qual nome deseja alterar? ')
-
-            if nomealtrd in nomes:
-                indice = nomes.index(nomealtrd)
-                nomes[indice] = input('Qual será o nome alterado?')
-                print('Nome alterado com sucesso!')
-
-        elif op == 4:
-            print('\nListando...')
-            print('\nNomes Cadastrados:')
-
-            for nome in nomes:
-                if nome != 0:
-                    print(nome)
-
-        elif op == 0:
-            print('Você saiu do programa.')
-            break
-
-        else:
-            print('Opção inválida.')
+   op = int(input("Digite a opção: "))
 
 
-    while inf == idds:
-        print('\nMENU','\n----', '\n1 – Cadastrar', '\n2 - Excluir','\n3 - Alterar', '\n4 - Listar', '\n0 - Sair')
-        op = int(input('Digite a opção: '))
+   if op == 1:
 
 
-        if op == 1:
-            if 0 in idds:  # se tiver espaço livre
+       if 0 in nomes:
 
-                posicaoidade = idds.index(0)
 
-                idd = input('Digite a placa: ')
+           posicao = nomes.index(0)
 
-                if idd != "":
 
-                    if idd in idds: # idd variavel e idds lista
-                        print('Idade já cadastrado.')
+           nome = input("Nome: ")
 
-                    else:
-                        idds[posicaoidade] = idd
-                        print('Idade cadastrada com sucesso!')
 
-                else:
-                    print('Idade inválida.')
+           if nome in nomes:
+               print("Pessoa já cadastrada.")
 
-            else:
-                print('Não há mais espaço para armazenar placas.')
 
-        elif op == 2:
-            exclui = input('Qual nome deseja excluir? ')
+           else:
+               idade = int(input("Idade: "))
+               altura = float(input("Altura: "))
+               peso = float(input("Peso: "))
 
-            if exclui in nomes:
-                indice = nomes.index(exclui)
-                nomes[indice] = 0
-                print('Nome excluído com sucesso!')
 
-            else:
-                print('Não foi possível excluir este nome, pois ele não existe no nosso sistema!')
+               nomes[posicao] = nome
+               idds[posicao] = idade
+               alts[posicao] = altura
+               pesos[posicao] = peso
 
-        elif op == 3:
-            nomealtrd = input('Qual nome deseja alterar? ')
 
-            if nomealtrd in nomes:
-                indice = nomes.index(nomealtrd)
-                nomes[indice] = input('Qual será o nome alterado?')
-                print('Nome alterado com sucesso!')
+               print("Cadastro realizado com sucesso!")
 
-        elif op == 4:
-            print('\nListando...')
-            print('\nPlacas cadastradas:')
 
-            for nome in nomes:
-                if nome != 0:
-                    print(nome)
+       else:
+           print("Não há mais espaço.")
 
-        elif op == 0:
-            print('Você saiu do programa.')
-            break
 
-        else:
-            print('Opção inválida.')
+   elif op == 2:
+
+
+       nome = input("Qual pessoa deseja excluir? ")
+
+
+       if nome in nomes:
+
+
+           indice = nomes.index(nome)
+
+
+           nomes[indice] = 0
+           idds[indice] = 0
+           alts[indice] = 0
+           pesos[indice] = 0
+
+
+           print("Cadastro excluído com sucesso!")
+
+
+       else:
+           print("Pessoa não encontrada.")
+
+
+   elif op == 3:
+
+
+       nome = input("Qual pessoa deseja alterar? ")
+
+
+       if nome in nomes:
+
+
+           indice = nomes.index(nome)
+
+
+           idds[indice] = int(input("Nova idade: "))
+           alts[indice] = float(input("Nova altura: "))
+           pesos[indice] = float(input("Novo peso: "))
+
+
+           print("Cadastro alterado com sucesso!")
+
+
+       else:
+           print("Pessoa não encontrada.")
+
+
+   elif op == 4:
+
+
+       print("\nCADASTROS:")
+
+
+       for i in range(15):
+
+
+           if nomes[i] != 0:
+
+
+               print("\nNome:", nomes[i], "\nIdade:", idds[i], "\nAltura:", alts[i], "m", "\nPeso:", pesos[i], "kg")
+
+
+   elif op == 0:
+
+
+       print("Programa encerrado.")
+       break
+
+
+   else:
+       print("Opção inválida.")
