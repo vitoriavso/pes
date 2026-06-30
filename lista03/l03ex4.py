@@ -12,7 +12,7 @@ nome da placa) e informar se houve sucesso ou falha. Já a opção listar deve
 simplesmente listar todas as placas cadastradas. Dica: utilize um valor padrão para definir
 um espaço vago na lista.'''
 
-placas = [0] * 3
+placas = [0] * 15
 
 # posição livre
 posicao = 0
