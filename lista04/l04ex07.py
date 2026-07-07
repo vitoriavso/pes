@@ -29,7 +29,7 @@ while True:
     if op == 1:
         nota = float(input("Digite a nota: "))
         notas.append(nota)
-        print('Nota cadastrada com sucesso! :)')
+        print('Nota cadastrada com sucesso! :)')        
         indice = indice + 1
     elif op == 2:
         if len(notas) == 0:
