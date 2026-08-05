@@ -22,6 +22,7 @@ l) O sistema deve ter opções para listar, por data, a lista dos veículos que
 retornaram;
 m) Precisamos saber, em determinado momento, se todas as entregas do dia foram
 realizadas.
+
 Relação de Condutores:
 001 – Roberto Souza
 002 – João Graciano
@@ -44,7 +45,7 @@ Relação dos Veículos
 005 – Volkswagen VW 17230 Worker
 006 – Volkswagen Express 9170
 007 – Iveco Daily 40s14
-008 – Iveco Tectro 310E28 '''
+008 – Iveco Tectro 310E28'''
 
 # inicio
 
