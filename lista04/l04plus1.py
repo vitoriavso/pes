@@ -41,19 +41,22 @@ Fabiana;
 João Eduardo.'''
 
 # Cadastro de Professores
-professores = {"001" : "Prof Thiago Paes",
-    "002" : "Prof Schalata",
-    "003" : "Prof Ignácio",
-    "004" : "Prof Ryan",
-    "005" : "Prof André",
-    "006" : "Profª Fabiana",
-    "007" : "Prof Alberto",
-    "008": "Prof Juliano",
-    "009" : "Prof Thiago Waltrik",
-    "010" : "Prof João Eduardo"}
 
+profs = {
+    "001": "Prof Thiago Paes",
+    "002": "Prof Schalata",
+    "003": "Prof Ignácio",
+    "004": "Prof Ryan",
+    "005": "Prof André",
+    "006": "Profª Fabiana",
+    "007": "Prof Alberto",
+    "008": "Prof Juliano",
+    "009": "Prof Thiago Waltrik",
+    "010": "Prof João Eduardo"
+}
 
 # Listas dos laboratórios
+
 lab102 = ["003", "001", "004", "005", "006"]
 lab103 = ["007"]
 lab104 = ["004", "008", "002", "005"]
@@ -66,22 +69,28 @@ opcao = -1
 while opcao != 0:
 
     print("\n====== SISTEMA DE LABORATÓRIOS ======")
-    print("1 - Cadastrar laboratórios")
+    print("1 - Cadastro de laboratórios")
     print("2 - Cadastro de professores")
-    print("3 - Liberar porta por crachá")
+    print("3 - Teste de acesso por crachá")
     print("0 - Sair")
 
     opcao = input("Escolha uma opção: ")
 
-    op = 0
-    
+
+    # Cadastro de laboratórios
+
     if opcao == '1':
-        print("1 - Cadastrar laboratórios (*ocorrerá o cadastro automático de todos os laboratórios disponiveis no sistema*)")
+
+        print("\n====== LABORATÓRIOS ======")
+        print("1 - Cadastrar laboratórios")
         print("2 - Listar laboratórios")
         print("3 - Alterar acesso ao laboratório")
         print("4 - Remover acesso de professores em laboratórios")
 
         op = input("Escolha uma opção: ")
+
+
+        # Cadastro automático dos laboratórios
 
         if op == '1':
 
@@ -94,141 +103,214 @@ while opcao != 0:
 
             print("\nLaboratórios cadastrados com sucesso!")
 
+
+        # Listar laboratório
+
         elif op == '2':
 
             lab = input("\nDigite o laboratório (Lab102 até Lab107): ")
+
             if lab == "Lab102":
-                print('Esses são os professores que possuem acesso ao Lab102:')
-                for i in lab102:
-                    print(i, "-", professores[i])
+
+                print("\nProfessores que possuem acesso ao Lab102:")
+
+                for codigo in lab102:
+                    print(codigo, "-", profs[codigo])
+
+
             elif lab == "Lab103":
-                print('Esses são os professores que possuem acesso ao Lab103:')
-                for i in lab103:
-                    print(i, "-", professores[i])
-            elif lab == "Lab104":   
-                print('Esses são os professores que possuem acesso ao Lab104:')
-                for i in lab104:
-                    print(i, "-", professores[i])
+
+                print("\nProfessores que possuem acesso ao Lab103:")
+
+                for codigo in lab103:
+                    print(codigo, "-", profs[codigo])
+
+
+            elif lab == "Lab104":
+
+                print("\nProfessores que possuem acesso ao Lab104:")
+
+                for codigo in lab104:
+                    print(codigo, "-", profs[codigo])
+
+
             elif lab == "Lab105":
-                print('Esses são os professores que possuem acesso ao Lab105:')
-                for i in lab105:
-                    print(i, "-", professores[i])
-            elif lab == "Lab106":   
-                print('Esses são os professores que possuem acesso ao Lab106:')
-                for i in lab106:
-                    print(i, "-", professores[i])
+
+                print("\nProfessores que possuem acesso ao Lab105:")
+
+                for codigo in lab105:
+                    print(codigo, "-", profs[codigo])
+
+
+            elif lab == "Lab106":
+
+                print("\nProfessores que possuem acesso ao Lab106:")
+
+                for codigo in lab106:
+                    print(codigo, "-", profs[codigo])
+
+
             elif lab == "Lab107":
-                print('Esses são os professores que possuem acesso ao Lab107:')
-                for i in lab107:
-                    print(i, "-", professores[i])
-            else:   
+
+                print("\nProfessores que possuem acesso ao Lab107:")
+
+                for codigo in lab107:
+                    print(codigo, "-", profs[codigo])
+
+
+            else:
+
                 print("Laboratório inexistente!")
 
+
+        # Alterar acesso
+
         elif op == '3':
-            laboratorio = input("\nDigite o laboratório (Lab102 até Lab107): ")
+
+            lab = input("\nDigite o laboratório (Lab102 até Lab107): ")
             cracha = input("Digite o código do crachá: ")
 
-            if laboratorio == "Lab102":
+            if cracha not in profs:
+
+                print("Professor não encontrado.")
+
+            elif lab == "Lab102":
+
                 if cracha not in lab102:
                     lab102.append(cracha)
                     print("Acesso adicionado ao Lab102.")
                 else:
                     print("O professor já possui acesso ao Lab102.")
 
-            elif laboratorio == "Lab103":
+
+            elif lab == "Lab103":
+
                 if cracha not in lab103:
                     lab103.append(cracha)
                     print("Acesso adicionado ao Lab103.")
                 else:
                     print("O professor já possui acesso ao Lab103.")
 
-            elif laboratorio == "Lab104":
+
+            elif lab == "Lab104":
+
                 if cracha not in lab104:
                     lab104.append(cracha)
                     print("Acesso adicionado ao Lab104.")
                 else:
                     print("O professor já possui acesso ao Lab104.")
 
-            elif laboratorio == "Lab105":
+
+            elif lab == "Lab105":
+
                 if cracha not in lab105:
                     lab105.append(cracha)
                     print("Acesso adicionado ao Lab105.")
                 else:
                     print("O professor já possui acesso ao Lab105.")
 
-            elif laboratorio == "Lab106":
+
+            elif lab == "Lab106":
+
                 if cracha not in lab106:
                     lab106.append(cracha)
                     print("Acesso adicionado ao Lab106.")
                 else:
                     print("O professor já possui acesso ao Lab106.")
 
-            elif laboratorio == "Lab107":
+
+            elif lab == "Lab107":
+
                 if cracha not in lab107:
                     lab107.append(cracha)
                     print("Acesso adicionado ao Lab107.")
                 else:
                     print("O professor já possui acesso ao Lab107.")
 
+
             else:
+
                 print("Laboratório inexistente!")
 
+
+        # Remover acesso
+
         elif op == '4':
-            laboratorio = input("\nDigite o laboratório (Lab102 até Lab107): ")
+
+            lab = input("\nDigite o laboratório (Lab102 até Lab107): ")
             cracha = input("Digite o código do crachá: ")
 
-            if laboratorio == "Lab102":
+
+            if lab == "Lab102":
+
                 if cracha in lab102:
                     lab102.remove(cracha)
                     print("Acesso removido do Lab102.")
                 else:
                     print("O professor não possui acesso ao Lab102.")
 
-            elif laboratorio == "Lab103":
+
+            elif lab == "Lab103":
+
                 if cracha in lab103:
                     lab103.remove(cracha)
                     print("Acesso removido do Lab103.")
                 else:
                     print("O professor não possui acesso ao Lab103.")
 
-            elif laboratorio == "Lab104":
+
+            elif lab == "Lab104":
+
                 if cracha in lab104:
                     lab104.remove(cracha)
                     print("Acesso removido do Lab104.")
                 else:
                     print("O professor não possui acesso ao Lab104.")
 
-            elif laboratorio == "Lab105":
+
+            elif lab == "Lab105":
+
                 if cracha in lab105:
                     lab105.remove(cracha)
                     print("Acesso removido do Lab105.")
                 else:
                     print("O professor não possui acesso ao Lab105.")
 
-            elif laboratorio == "Lab106":
+
+            elif lab == "Lab106":
+
                 if cracha in lab106:
                     lab106.remove(cracha)
                     print("Acesso removido do Lab106.")
                 else:
                     print("O professor não possui acesso ao Lab106.")
 
-            elif laboratorio == "Lab107":
+
+            elif lab == "Lab107":
+
                 if cracha in lab107:
                     lab107.remove(cracha)
                     print("Acesso removido do Lab107.")
                 else:
                     print("O professor não possui acesso ao Lab107.")
 
+
             else:
+
                 print("Laboratório inexistente!")
 
+
         else:
+
             print("\nOpção inválida!")
-    
+
+
+    # Cadastro de professores
 
     elif opcao == '2':
 
-        print("1 - Cadastrar professores existentes (*ocorrerá o cadastro automático de todos os professores existentes no sistema*)")
+        print("\n====== CADASTRO DE PROFESSORES ======")
+        print("1 - Cadastrar professores existentes")
         print("2 - Cadastrar novo professor")
         print("3 - Listar professores")
         print("4 - Alterar professor")
@@ -236,127 +318,268 @@ while opcao != 0:
 
         op = input("Escolha uma opção: ")
 
+
+        # Cadastro automático
+
         if op == '1':
-            print('--- Cadastrando professores existentes ---\n')
+
             print("\nProfessores cadastrados com sucesso!")
 
+
+        # Cadastrar novo professor
+
         elif op == '2':
+
             print("\nCadastro de Novo Professor\n")
 
             encontrou = False
+
             while encontrou == False:
-                codigo = input("\nDigite o código do professor: ")
-                if codigo in professores:
+
+                codigo = input("Digite o código do professor: ")
+
+                if codigo in profs:
+
                     print("O código do professor já está em uso.")
+
                 else:
+
                     nome = input("Digite o nome do professor: ")
-                    professores[codigo] = nome
+
+                    profs[codigo] = nome
+
                     print("Professor cadastrado com sucesso!")
+
                     encontrou = True
 
+
+        # Listar professores
+
         elif op == '3':
-            print("\nListagem de Professores\n")
-            for codigo, nome in professores.items():
-                print(f"{codigo} - {nome}")
+
+            print("\n====== LISTAGEM DE PROFESSORES ======\n")
+
+            for codigo, nome in profs.items():
+
+                print(codigo, "-", nome)
+
+
+        # Alterar professor
 
         elif op == '4':
-            print('\n Alterar Professor\n')
-            print('\nOpções de alteração:\n')
-            print('1 - Alterar nome do professor')
-            print('2 - Alterar código do professor')
-            op = input('Escolha uma opção: ')
+
+            print("\n====== ALTERAR PROFESSOR ======\n")
+            print("1 - Alterar nome do professor")
+            print("2 - Alterar código do professor")
+
+            op = input("Escolha uma opção: ")
+
 
             if op == '1':
 
                 cod = input("Digite o código do professor que deseja alterar o nome: ")
-                if cod in  professores:
-                        novo_nome = input("Digite o novo nome do professor: ")
-                        professores[cod] = novo_nome
-                        print("Professor alterado com sucesso!")
+
+                if cod in profs:
+
+                    novo_nome = input("Digite o novo nome do professor: ")
+
+                    profs[cod] = novo_nome
+
+                    print("Professor alterado com sucesso!")
+
                 else:
+
                     print("Professor não encontrado.")
+
 
             elif op == '2':
-                cod = input('Digite o código do professor que deseja alterar o código: ')
-                if cod in professores:
-                    novo_cod = input('Digite o novo código do professor: ')
-                    if novo_cod not in professores:
-                        professores[novo_cod] = professores[cod]
-                        del professores[cod]
+
+                cod = input("Digite o código do professor que deseja alterar o código: ")
+
+                if cod in profs:
+
+                    novo_cod = input("Digite o novo código do professor: ")
+
+                    if novo_cod not in profs:
+
+                        profs[novo_cod] = profs[cod]
+
+                        del profs[cod]
+
                         print("Código do professor alterado com sucesso!")
+
                     else:
+
                         print("O novo código já está em uso.")
+
                 else:
+
                     print("Professor não encontrado.")
 
 
+            else:
+
+                print("Opção inválida!")
+
+
+        # Excluir professor
+
         elif op == '5':
+
             print('\n Excluir Professor\n')
+
             cod = input('Digite o código do professor que deseja excluir: ')
-            if cod in professores:
-                del professores[cod]
+
+            if cod in profs:
+
+                possui_acesso = False
+
+                if cod in lab102:
+                    possui_acesso = True
+
+                if cod in lab103:
+                    possui_acesso = True
+
+                if cod in lab104:
+                    possui_acesso = True
+
+                if cod in lab105:
+                    possui_acesso = True
+
+                if cod in lab106:
+                    possui_acesso = True
+
+                if cod in lab107:
+                    possui_acesso = True
+
+
+                if possui_acesso:
+
+                    resposta = input("O professor possui acesso a um ou mais laboratórios. Deseja excluir mesmo assim? (s/n): ")
+
+                    if resposta == 's':
+
+                        if cod in lab102:
+                            lab102.remove(cod)
+
+                        if cod in lab103:
+                            lab103.remove(cod)
+
+                        if cod in lab104:
+                            lab104.remove(cod)
+
+                        if cod in lab105:
+                            lab105.remove(cod)
+
+                        if cod in lab106:
+                            lab106.remove(cod)
+
+                        if cod in lab107:
+                            lab107.remove(cod)
+
+                        del profs[cod]
+
+                        print("Professor excluído com sucesso!")
+                        print("Os acessos aos laboratórios também foram removidos.")
+
+                    else:
+
+                        print("Exclusão cancelada.")
+
+
+                else:
+
+                    del profs[cod]
+
+                    print("Professor excluído com sucesso!")
+
+            else:
+
+                print("Professor não encontrado.")
+
+
+        else:
+
+            print("\nOpção inválida!")
+
+
+    # Teste de acesso
 
     elif opcao == '3':
 
-        print("\nCadastro de Professores\n")
+        print("\n====== TESTE DE ACESSO ======\n")
 
-        for professor in professores:
-            print(professor[0], "-", professor[1])
-
-
-    elif opcao == '4':
-
-        laboratorio = input("\nDigite o laboratório (Lab102 até Lab107): ")
+        lab = input("Digite o laboratório (Lab102 até Lab107): ")
         cracha = input("Digite o código do crachá: ")
 
         autorizado = False
 
-        if laboratorio == "Lab102":
+
+        if lab == "Lab102":
+
             if cracha in lab102:
                 autorizado = True
 
-        elif laboratorio == "Lab103":
+
+        elif lab == "Lab103":
+
             if cracha in lab103:
                 autorizado = True
 
-        elif laboratorio == "Lab104":
+
+        elif lab == "Lab104":
+
             if cracha in lab104:
                 autorizado = True
 
-        elif laboratorio == "Lab105":
+
+        elif lab == "Lab105":
+
             if cracha in lab105:
                 autorizado = True
 
-        elif laboratorio == "Lab106":
+
+        elif lab == "Lab106":
+
             if cracha in lab106:
                 autorizado = True
 
-        elif laboratorio == "Lab107":
+
+        elif lab == "Lab107":
+
             if cracha in lab107:
                 autorizado = True
 
+
         else:
+
             print("Laboratório inexistente!")
 
-        if autorizado:
 
-            nome = ""
+        if lab == "Lab102" or lab == "Lab103" or lab == "Lab104" or lab == "Lab105" or lab == "Lab106" or lab == "Lab107":
 
-            for professor in professores:
-                if professor[0] == cracha:
-                    nome = professor[1]
+            if cracha not in profs:
 
-            print("\nAcesso liberado!")
-            print("Professor:", nome)
-            print("Bem-vindo ao", laboratorio)
+                print("\nCrachá não cadastrado.")
 
-        elif laboratorio == "Lab102" or laboratorio == "Lab103" or laboratorio == "Lab104" or laboratorio == "Lab105" or laboratorio == "Lab106" or laboratorio == "Lab107":
-            print("\nAcesso NEGADO!")
+            elif autorizado:
+
+                print("\nAcesso liberado!")
+                print("Professor:", profs[cracha])
+                print("Bem-vindo ao", lab)
+
+            else:
+
+                print("\nAcesso NEGADO!")
+
+
+    # Sair
 
     elif opcao == '0':
+
         print("\nSistema encerrado.")
         break
 
     else:
-        print("\nOpção inválida!")
 
+        print("\nOpção inválida!")
