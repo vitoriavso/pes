@@ -72,8 +72,8 @@ while opcao != "0": # Corrigido para string "0"
         if em_rota:
             continue
 
-        data = input("Data da saída: ")
-        hora = input("Hora da saída: ")
+        data = input("Data da saída (DD/MM/AAAA): ")
+        hora = input("Hora da saída (HH:MM): ")
 
         viagem = {
             "caminhao": cod_cam,

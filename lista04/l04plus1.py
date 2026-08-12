@@ -455,9 +455,9 @@ while opcao != 0:
 
                 if possui_acesso:
 
-                    resposta = input("O professor possui acesso a um ou mais laboratórios. Deseja excluir mesmo assim? (s/n): ")
+                    resposta = input("O professor possui acesso a um ou mais laboratórios. Deseja excluir mesmo assim? (sim/não): ")
 
-                    if resposta == 's':
+                    if resposta == 'sim':
 
                         if cod in lab102:
                             lab102.remove(cod)
