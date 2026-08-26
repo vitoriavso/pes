@@ -23,7 +23,7 @@ while True:
     if resposta in dic:
         print(f'O significado da palavra {resposta} é: ', dic[resposta])
     rspt = input('Você deseja verificar outra palavra (s/n)? ')
-    if rspt == s:
+    if rspt == 's':
         continue
     else:
         print('\nSaindo do programa ...\n')
