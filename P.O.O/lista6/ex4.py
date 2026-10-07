@@ -7,9 +7,9 @@ Teste criando um objeto, verificando a disponibilidade, vendendo produtos e veri
 novamente.'''
 
 class Produto:
-    def __init__(self):
-        self.nome= ''
-        self.quantidade = 0
+    def __init__(self, nome, quantidade):
+        self.nome= nome
+        self.quantidade = quantidade
     
     def esta_disponivel(self):
         return self.quantidade > 0
@@ -25,9 +25,10 @@ class Produto:
         else:
             return f'Produto {self.nome} não disponível para venda.'
 
-produto1 = Produto()
-produto1.nome = input("Digite o nome do produto: ")
-produto1.quantidade = int(input("Digite a quantidade do produto: "))
+
+n = input("Digite o nome do produto: ")
+qntd = int(input("Digite a quantidade do produto: "))
+produto1 = Produto(n, qntd)
 print(produto1.resposta_disponibilidade())
 resposta = input("Deseja vender o produto? (s/n): ")
 if resposta.lower() == 's':
