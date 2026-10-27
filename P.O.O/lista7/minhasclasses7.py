@@ -80,3 +80,78 @@ class Computador:
 # métodos de um objeto do tipo VagaDeEstacionamento.
 
 class Carro:
+    def __init__(self, placa, modelo):
+        self.placa = placa
+        self.modelo = modelo
+    def __repr__(self):
+        return f"Carro(placa='{self.placa}', modelo='{self.modelo}')"
+
+
+
+class VagaDeEstacionamento:
+    def __init__(self, id_vaga):
+        self.id_vaga = id_vaga
+        self.carro_estacionado = None
+
+    def ocupar_vaga(self, carro_obj):
+        if self.carro_estacionado is None:
+            self.carro_estacionado = carro_obj
+            return True
+        else:
+            return False
+
+    def liberar_vaga(self):
+        self.carro_estacionado = None
+    
+    def __repr__(self):
+        return f"VagaDeEstacionamento: id_vaga = '{self.id_vaga}', carro_estacionado = {self.carro_estacionado})"
+
+#Exercício 4: Funcionario e ContratoDeTrabalho (1..1).
+#Objetivo: Modelar um 1..1 onde a "parte" (Contrato) é obrigatória e contém a lógica de
+#cálculo que o "todo" (Funcionario) utiliza.
+#Classes: ContratoDeTrabalho e Funcionario.
+#Regras:
+#• A classe ContratoDeTrabalho deve ter salario_bruto (float) e percentual_impostos
+#(float, ex: 0.11 para 11% de INSS).
+#• O ContratoDeTrabalho deve ter um método chamado valor_impostos que calcula e
+#retorna o valor exato do desconto (ex: salario_bruto * percentual_impostos).
+#• A classe Funcionario deve ter nome e cargo.
+#• Um Funcionario deve ter exatamente um ContratoDeTrabalho para ser criado
+#(1..1).
+#• O __init__ do Funcionario deve receber nome, cargo, e também o salario_bruto e o
+#percentual_impostos necessários para criar sua própria instância de
+#ContratoDeTrabalho (Composição). O atributo funcionario.contrato nunca pode ser
+#None.
+#• Crie um método chamado salario_liquido na classe Funcionario. Este método deve:
+#◦ Acessar o salario_bruto do seu contrato.
+#◦ Acessar o valor_impostos calculado pelo seu contrato.
+#◦ Retornar o salario_bruto menos o valor_impostos.
+#Seu programa principal deve ter um menu interativo onde se possa testar todos os
+#métodos de um objeto do tipo Funcionario. Faça, também, o Diagrama de Classes da sua
+#implementação final.
+
+class ContratoDeTrabalho:
+    def __init__(self, salario_bruto, percentual_impostos):
+        self.salario_bruto = salario_bruto
+        self.percentual_impostos = percentual_impostos
+
+    def valor_impostos(self):
+        return self.salario_bruto * self.percentual_impostos
+    
+    def __repr__(self):
+
+
+class Funcionario:
+    def __init__(self, nome, cargo, salario_bruto, percentual_impostos):
+        self.nome = nome
+        self.cargo = cargo
+
+        self.contrato = ContratoDeTrabalho(
+            salario_bruto, percentual_impostos
+        )
+
+    def salario_liquido(self):
+        impostos = self.contrato.valor_impostos()
+
+
+        return self.contrato.salario_bruto - impostos
