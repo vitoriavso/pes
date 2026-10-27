@@ -139,7 +139,11 @@ class ContratoDeTrabalho:
         return self.salario_bruto * self.percentual_impostos
     
     def __repr__(self):
-
+        return (
+            f"ContratoDeTrabalho("
+            f"salario_bruto={self.salario_bruto}, "
+            f"percentual_impostos={self.percentual_impostos})"
+        )
 
 class Funcionario:
     def __init__(self, nome, cargo, salario_bruto, percentual_impostos):
@@ -153,5 +157,10 @@ class Funcionario:
     def salario_liquido(self):
         impostos = self.contrato.valor_impostos()
 
-
-        return self.contrato.salario_bruto - impostos
+    def __repr__(self):
+        return (
+            f"Funcionario("
+            f"nome='{self.nome}', "
+            f"cargo='{self.cargo}', "
+            f"contrato={self.contrato})"
+        )
