@@ -1,4 +1,9 @@
 
+import hashlib
+import pickle
+import os
+from datetime import datetime
+
 # CLASSE USUARIO
 
 class Usuario:

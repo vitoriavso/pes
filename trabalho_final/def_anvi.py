@@ -1,4 +1,9 @@
 
+import hashlib
+import pickle
+import os
+from datetime import datetime
+
 def menu_admin(loja, usuario):
 
     while True:
